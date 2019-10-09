@@ -28,15 +28,14 @@ while True:
         break
     total += size
     for i in range(size):
-        found = False
         title = articles[i].get('title')
         desc = articles[i].get('desc')
-        if '爬虫' in title:
-            found = True
-        elif '爬虫' in desc:
-            found = True
-        if found:
+        url = articles[i].get('url')
+        if '爬虫' in title or '爬虫' in desc:
             match += 1
-            print(title)
+            print(str(title) + "url: " + str(url))
+    if offset == 0:
+        # offset 为零时，使用offset会重复循环，此时使用Header中的X-Tingyun-Id作为标识
+        break
 
 print("全栈搜索完毕，共找到python文章%s篇，其中涉及“爬虫”技术的文章共%s篇" % (total, match))
