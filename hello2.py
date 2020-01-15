@@ -33,6 +33,7 @@ def funx(x):
     :param x: number
     :return: funy
     """
+
     def funy(y):
         """
         Function for test inner Function funy
@@ -40,8 +41,14 @@ def funx(x):
         :return: x * y
         """
         return x * y
-    return funy    # return funy返回的是一个对象，可理解为funx是funy的一个对象
+
+    return funy  # return funy返回的是一个对象，可理解为funx是funy的一个对象
 
 
 print(funx(10)(5))
 print(funx.__doc__)
+
+foo = [2, 18, 9, 22, 17, 24, 8, 12, 27]
+
+print(list(filter(lambda x: x % 3 == 0, foo)))
+print([x for x in foo if x % 3 == 0])
